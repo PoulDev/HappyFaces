@@ -1,7 +1,11 @@
 # HappyFaces
 A python script to generate SVG profile pictures of simple happy faces
 
-![](./example.svg)
+![](./examples/1.svg)
+![](./examples/2.svg)
+![](./examples/3.svg)
+![](./examples/4.svg)
+![](./examples/5.svg)
 
 ## Simple usage
 Generate from CLI:

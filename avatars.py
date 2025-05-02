@@ -10,11 +10,11 @@ template = '''
 
 circle = '<circle r="40" cx="40" cy="40" fill="#{bgColor}"/>'
 face = '''
-<g transform="translate({faceX}, {faceY}) scale(2)">
-    <path d="M4 10c{bezier}" stroke="#{faceColor}" fill="none" stroke-linecap="round"></path>
-    <rect x="{leX}" y="{leY}" width="1.5" height="2" rx="1" stroke="none" fill="#{faceColor}"></rect>
-    <rect x="{reX}" y="{reY}" width="1.5" height="2" rx="1" stroke="none" fill="#{faceColor}"></rect>
-</g>
+    <g transform="translate({faceX}, {faceY}) scale(2)">
+        <path d="M4 10c{bezier}" stroke="#{faceColor}" fill="none" stroke-linecap="round"></path>
+        <rect x="{leX}" y="{leY}" width="1.5" height="2" rx="1" stroke="none" fill="#{faceColor}"></rect>
+        <rect x="{reX}" y="{reY}" width="1.5" height="2" rx="1" stroke="none" fill="#{faceColor}"></rect>
+    </g>
 '''
 
 colors = [
