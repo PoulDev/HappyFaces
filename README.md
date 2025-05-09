@@ -33,4 +33,5 @@ Start the Server
 ```
 python3 avatarServer.py
 ```
-You can now access your random avatars at http://127.0.0.1:8000
+You can now access your random avatars at http://127.0.0.1:8000 or if you are too lazy to run it check it out on https://0xwassoky.pythonanywhere.com/ 
+
