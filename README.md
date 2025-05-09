@@ -2,7 +2,7 @@
 A python script to generate SVG profile pictures of simple happy faces
 
 > [!TIP]
-> [Check it out!](https://0xwassoky.pythonanywhere.com/)
+> Check it out! [Online Instance] (https://0xwassoky.pythonanywhere.com/)
 
 
 
