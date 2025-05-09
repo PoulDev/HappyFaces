@@ -1,6 +1,11 @@
 # HappyFaces
 A python script to generate SVG profile pictures of simple happy faces
 
+> [!TIP]
+> [Check it out!] (https://0xwassoky.pythonanywhere.com/)
+
+
+
 ![](./examples/1.svg)
 ![](./examples/2.svg)
 ![](./examples/3.svg)
@@ -33,5 +38,5 @@ Start the Server
 ```
 python3 avatarServer.py
 ```
-You can now access your random avatars at http://127.0.0.1:8000 or if you are too lazy to run it check it out on https://0xwassoky.pythonanywhere.com/ 
+You can now access your random avatars at http://127.0.0.1:8000.
 
