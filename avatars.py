@@ -1,15 +1,15 @@
 import random
-import math
 
-template = '''
+
+template: str = '''
 <svg width="80" height="80" xmlns="http://www.w3.org/2000/svg">
     {circle}
     {face}
 </svg>
 '''
 
-circle = '<circle r="40" cx="40" cy="40" fill="#{bgColor}"/>'
-face = '''
+circle: str = '<circle r="40" cx="40" cy="40" fill="#{bgColor}"/>'
+face: str = '''
     <g transform="translate({faceX}, {faceY}) scale(2)">
         <path d="M4 10c{bezier}" stroke="#{faceColor}" fill="none" stroke-linecap="round"></path>
         <rect x="{leX}" y="{leY}" width="1.5" height="2" rx="1" stroke="none" fill="#{faceColor}"></rect>
@@ -17,7 +17,7 @@ face = '''
     </g>
 '''
 
-colors = [
+colors: list[tuple[int, int, int]] = [
     (255, 212, 120),
     (255, 125, 122),
     (122, 164, 255),
@@ -32,13 +32,13 @@ colors = [
     (255, 122, 231),
 ]
 
-TRIGGER = 200
+TRIGGER: int = 200
 
-def isDark(color):
+def isDark(color: tuple[int, int, int]) -> bool:
     luminance = 0.2126*color[0] + 0.7152*color[1] + 0.0722*color[2]
     return luminance <= 190
 
-def genAvatar(bgColor, faceColor, eyesSpace, eyesY, faceX, faceY, mouthBezier = '2 1 4 1 6 0'):
+def genAvatar(bgColor: str, faceColor: str, eyesSpace: int, eyesY: int, faceX: int, faceY: int, mouthBezier: str = '2 1 4 1 6 0') -> str:
     avatarCircle = circle.format(bgColor=bgColor)
     
     eyesCenter = (eyesSpace * 8 + 4) / 2
@@ -56,7 +56,7 @@ def genAvatar(bgColor, faceColor, eyesSpace, eyesY, faceX, faceY, mouthBezier = 
 
     return template.format(circle=avatarCircle, face=avatarFace)
 
-def changeColor(v):
+def changeColor(v: int) -> int:
     v = v + random.random() * 30 - 15
     if v > 255:
         v = 255
@@ -64,30 +64,30 @@ def changeColor(v):
         v = 0
     return v
 
-def randAvatar():
-    color = random.choice(colors)
-    color = (
+def randAvatar() -> str:
+    color: tuple[int, int, int] = random.choice(colors)
+    color: tuple[int, int, int] = (
         int(changeColor(color[0])),
         int(changeColor(color[1])),
         int(changeColor(color[2])),
     )
 
-    dark = isDark(color)
-    color = ''.join(hex(int(n))[2] for n in color)
+    dark: bool = isDark(color)
+    color: str = ''.join(hex(int(n))[2] for n in color)
 
-    firstPoint = f'{random.randint(0, 3)} {random.randint(1, 2)}'
-    secondPoint = f'{random.randint(3, 6)} {random.randint(1, 2)}'
+    firstPoint: str = f'{random.randint(0, 3)} {random.randint(1, 2)}'
+    secondPoint: str = f'{random.randint(3, 6)} {random.randint(1, 2)}'
 
     return genAvatar(
-        color,
-        'EFEFEF' if dark else '010101',
-        random.random(),
-        random.random(),
-        random.random(),
-        random.random(),
-        f'{firstPoint} {secondPoint} 6 0'
+        bgColor=color,
+        faceColor='EFEFEF' if dark else '010101',
+        eyesSpace=random.random(),
+        eyesY=random.random(),
+        faceX=random.random(),
+        faceY=random.random(),
+        mouthBezier=f'{firstPoint} {secondPoint} 6 0'
     )
 
 if __name__ == '__main__':
-    print(randAvatar())
-
+    with open("face.svg", 'w') as f:
+        f.write(randAvatar())
