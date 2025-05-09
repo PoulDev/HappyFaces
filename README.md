@@ -23,6 +23,12 @@ source .venv/bin/activate
 .\.venv\Scripts\Activate.ps1
 ```
 
+Install the libraries
+```
+pip install -r requirements.txt
+```
+
+
 Start the Server
 ```
 python3 avatarServer.py
